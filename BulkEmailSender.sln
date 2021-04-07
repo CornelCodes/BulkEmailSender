@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormUI", "WinFormUI\WinFormUI.csproj", "{D6130E55-E2AE-4BBA-9D1B-77368A06FC5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailLibrary", "EmailLibrary\EmailLibrary.csproj", "{1D100BCF-558E-4110-BFF0-A674B9AD53B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6130E55-E2AE-4BBA-9D1B-77368A06FC5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6130E55-E2AE-4BBA-9D1B-77368A06FC5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6130E55-E2AE-4BBA-9D1B-77368A06FC5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6130E55-E2AE-4BBA-9D1B-77368A06FC5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D100BCF-558E-4110-BFF0-A674B9AD53B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D100BCF-558E-4110-BFF0-A674B9AD53B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D100BCF-558E-4110-BFF0-A674B9AD53B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D100BCF-558E-4110-BFF0-A674B9AD53B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EB102957-EA49-49FF-916B-CCC466F9EFAA}
+	EndGlobalSection
+EndGlobal
