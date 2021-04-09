@@ -20,6 +20,7 @@ namespace WinFormUI
             InitializeComponent();
             emailer = new Emailer();
             ShowRecipients();
+            SetTestInput();
         }
 
         private void addRecipientButton_Click(object sender, EventArgs e)
@@ -31,18 +32,31 @@ namespace WinFormUI
 
         private void removeRecipientButton_Click(object sender, EventArgs e)
         {
-            emailer.RemoveRecipient((Recipient)recipientsListBox.SelectedItem);
+            emailer.RemoveRecipient((Recipient) recipientsListBox.SelectedItem);
         }
 
         private void sendEmailButton_Click(object sender, EventArgs e)
         {
-            emailer.SendEmailToAll(emailSubjectTextBox.Text, emailBodyTextBox.Text);
+            emailer.SendEmailToAll(
+                emailSubjectTextBox.Text,
+                emailBodyTextBox.Text, 
+                senderEmailTextBox.Text,
+                senderNameTextBox.Text,
+                senderPasswordTextBox.Text);
         }
 
         private void ShowRecipients()
         {
             recipientsListBox.DataSource = emailer.recipients;
             recipientsListBox.DisplayMember = "EmailAddress";
+        }
+
+        private void SetTestInput()
+        {
+            senderEmailTextBox.Text = "cornel.tdbmarketing@gmail.com";
+            senderNameTextBox.Text = "Cornel";
+            emailBodyTextBox.Text = "Test email";
+            emailSubjectTextBox.Text = "Test subject";
         }
     }
 }

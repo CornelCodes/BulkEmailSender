@@ -96,8 +96,10 @@ namespace WinFormUI
             // 
             this.senderPasswordTextBox.Location = new System.Drawing.Point(309, 45);
             this.senderPasswordTextBox.Name = "senderPasswordTextBox";
+            this.senderPasswordTextBox.PasswordChar = '*';
             this.senderPasswordTextBox.Size = new System.Drawing.Size(178, 20);
             this.senderPasswordTextBox.TabIndex = 5;
+            this.senderPasswordTextBox.UseSystemPasswordChar = true;
             // 
             // senderGroupBox
             // 

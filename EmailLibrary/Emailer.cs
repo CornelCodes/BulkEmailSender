@@ -15,26 +15,12 @@ namespace EmailLibrary
     {
         public BindingList<Recipient> recipients;
         public Sender mailSender;
-        SmtpClient smtpClient;
+        SmtpClient SmtpServer;
 
         public Emailer()
         {
             recipients = new BindingList<Recipient>();
             mailSender = new Sender();
-        }
-
-        public void AddSender(string emailAddress, string name, string password)
-        {
-            if (EmailValidator.Validate(emailAddress))
-            {
-                mailSender.EmailAddress = emailAddress;
-                mailSender.Name = name;
-                mailSender.Password = password;
-            }
-            else
-            {
-                mailSender = null;
-            }
         }
 
         public void AddRecipient(string emailAddress)
@@ -56,27 +42,43 @@ namespace EmailLibrary
             }
         }
 
-        public async void SendEmailToAll(string subject, string body)
+        public async void SendEmailToAll(string subject, string body, string senderEmail, string senderName, string senderPassword)
         {
-            smtpClient = new SmtpClient("smtp.gmail.com")
+            SmtpServer = new SmtpClient("smtp.gmail.com")
             {
                 Port = 587,
-                Credentials = new NetworkCredential(mailSender.EmailAddress, mailSender.Password),
+                Credentials = new NetworkCredential(senderEmail, senderPassword),
                 EnableSsl = true
             };
+
 
             await Task.Run(() =>
             {
                 foreach (Recipient recipient in recipients)
                 {
+
                     if (EmailValidator.Validate(recipient.EmailAddress))
                     {
-                        smtpClient.Send(mailSender.EmailAddress, recipient.EmailAddress, subject, body);
+                        MailMessage message = new MailMessage();
+                        message.From = new MailAddress(senderEmail);
+                        message.To.Add(recipient.EmailAddress);
+                        message.Subject = subject;
+                        message.Body = body;
+                        SmtpServer.Send(message);
+
+                        Console.WriteLine($"Sending email to {message.To}");
                     }
+                    else
+                    {
+                        Console.WriteLine("Invalid Email");
+                    }
+
                 }
             });
 
-            Console.WriteLine("Sent emails");
+            Console.WriteLine("Email sent");
+
         }
+
     }
 }
